@@ -25,11 +25,23 @@
 
     <div id="header-container">
         <div id="button-container">
-            <button id="all-button" onclick="selectAll()"><b id="all-button-icon">&#9634;</b> All</button>
-            <button id="purple-button" onclick="selectPurpleTeam()"><b id="purple-button-icon">&#9634;</b> Purple team
+            <button id="all-button" onclick="selectAll()">
+                <div class="button-content">
+                    <b id="all-button-icon">&#9634;</b>
+                    <span>All</span>
+                </div>
             </button>
-            <button id="workflow-button" onclick="selectWorkflowTeam()"><b id="workflow-button-icon">&#9634;</b>
-                Workflow team
+            <button id="purple-button" onclick="selectPurpleTeam()">
+                <div class="button-content">
+                    <b id="purple-button-icon">&#9634;</b>
+                    <span>Purple team</span>
+                </div>
+            </button>
+            <button id="workflow-button" onclick="selectWorkflowTeam()">
+                <div class="button-content">
+                    <b id="workflow-button-icon">&#9634;</b>
+                    <span>Workflow team</span>
+                </div>
             </button>
         </div>
 

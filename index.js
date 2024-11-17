@@ -78,6 +78,26 @@ function renderChart() {
     container.on("click", spin);
 }
 
+function updateIconButton() {
+    let checkboxList = document.querySelectorAll('#options input[type=checkbox]');
+    let checkboxListLength = checkboxList.length;
+
+    document.getElementById("all-button-icon").innerHTML = checkboxListLength !== data.length ? "&#9634;" : "&#x1F5F9;";
+    self.isAllChecked = checkboxListLength === data.length;
+
+    checkboxList = document.querySelectorAll('#options input[type=checkbox].purple-team');
+    checkboxListLength = checkboxList.length;
+
+    document.getElementById("purple-button-icon").innerHTML = checkboxListLength !== data.length ? "&#9634;" : "&#x1F5F9;";
+    self.isPurpleChecked = checkboxListLength === data.length;
+
+    checkboxList = document.querySelectorAll('#options input[type=checkbox].workflow-team');
+    checkboxListLength = checkboxList.length;
+
+    document.getElementById("workflow-button-icon").innerHTML = checkboxListLength !== data.length ? "&#9634;" : "&#x1F5F9;";
+    self.isPurpleChecked = checkboxListLength === data.length;
+}
+
 function updateData() {
     let selectedOptions = [];
     document.querySelectorAll('#options input[type=checkbox]:checked').forEach(checkbox => {
@@ -85,6 +105,12 @@ function updateData() {
     });
     data = selectedOptions;
     oldpick = [];
+
+    updateIconButton();
+
+    let wheelContainer = document.getElementById('wheel-container');
+    wheelContainer.style.display = data.length === 0 ? 'none' : 'flex';
+
     renderChart();
 }
 
@@ -112,6 +138,10 @@ function selectAll() {
     });
     data = selectedOptions;
     oldpick = [];
+
+    let wheelContainer = document.getElementById('wheel-container');
+    wheelContainer.style.display = data.length === 0 ? 'none' : 'flex';
+
     renderChart();
 }
 
@@ -144,6 +174,10 @@ function selectPurpleTeam() {
     });
     data = selectedOptions;
     oldpick = [];
+
+    let wheelContainer = document.getElementById('wheel-container');
+    wheelContainer.style.display = data.length === 0 ? 'none' : 'flex';
+
     renderChart();
 }
 
@@ -176,6 +210,10 @@ function selectWorkflowTeam() {
     });
     data = selectedOptions;
     oldpick = [];
+
+    let wheelContainer = document.getElementById('wheel-container');
+    wheelContainer.style.display = data.length === 0 ? 'none' : 'flex';
+
     renderChart();
 }
 
@@ -189,14 +227,17 @@ function spin(d) {
 
         var modal = document.getElementById("modal");
         var span = document.getElementsByClassName("close")[0];
+        let wheelContainer = document.getElementById('wheel-container');
         let resultDiv = document.getElementById('result');
         span.onclick = function() {
+            wheelContainer.style.display = 'none';
             resultDiv.style.display = 'none';
             modal.style.display = "none";
         }
 
         window.onclick = function(event) {
             if (event.target === modal) {
+                wheelContainer.style.display = 'none';
                 resultDiv.style.display = 'none';
                 modal.style.display = "none";
             }
@@ -226,11 +267,8 @@ function spin(d) {
             let selectedLabel = selectedOption.label;
 
             data = data.filter(option => option !== selectedOption);
-            if (!data || data.length === 0) {
-                document.getElementById("all-button-icon").innerHTML = "&#9634;";
-                document.getElementById("purple-button-icon").innerHTML = "&#9634;";
-                document.getElementById("workflow-button-icon").innerHTML = "&#9634;";
-            }
+            updateIconButton();
+            
             let resultDiv = document.getElementById('result');
             resultDiv.style.display = 'flex';
 

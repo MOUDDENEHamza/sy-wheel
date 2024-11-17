@@ -77,6 +77,14 @@ h1 {
     cursor: pointer;
 }
 
+.button-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.button-content > b {
+    margin-right: 5%;
+}
 #all-button:hover {
     color: black;
     background: white;
@@ -150,7 +158,7 @@ h1 {
 }
 
 #wheel-container {
-    display: flex;
+    display: none;
     justify-content: space-between;
     margin: 1%;
 }

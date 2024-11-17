@@ -15,24 +15,24 @@ let isPurpleChecked = false;
 let isWorkflowChecked = false;
 
 let teamMemberList = [
-    {name: 'Thierry', role: 'Boss', avatar: 'assets/img/avatar-male.svg'},
-    {name: 'Céline', role: 'Developer', avatar: 'assets/img/avatar-female.svg'},
-    {name: 'Claire M', role: 'Developer', avatar: 'assets/img/avatar-female.svg'},
-    {name: 'Frédéric', role: 'Developer', avatar: 'assets/img/avatar-male.svg'},
-    {name: 'Pierre-Olivier', role: 'Developer', avatar: 'assets/img/avatar-male.svg'},
-    {name: 'Hamza', role: 'Developer', avatar: 'assets/img/avatar-hamza.jpg'},
-    {name: 'Mehdi L', role: 'Developer', avatar: 'assets/img/avatar-male.svg'},
-    {name: 'Yassine', role: 'Developer', avatar: 'assets/img/avatar-male.svg'},
-    {name: 'Othmane', role: 'Developer', avatar: 'assets/img/avatar-male.svg'},
-    {name: 'Jacques', role: 'Developer', avatar: 'assets/img/avatar-male.svg'},
-    {name: 'Nada', role: 'QA', avatar: 'assets/img/avatar-female.svg'},
-    {name: 'Fatima', role: 'QA', avatar: 'assets/img/avatar-female.svg'},
-    {name: 'Abdouraman', role: 'QA', avatar: 'assets/img/avatar-male.svg'},
-    {name: 'Mehdi H', role: 'QA', avatar: 'assets/img/avatar-male.svg'},
-    {name: 'Ahmed', role: 'QA', avatar: 'assets/img/avatar-male.svg'},
-    {name: 'Claire P', role: 'PO', avatar: 'assets/img/avatar-female.svg'},
-    {name: 'Pauline', role: 'PO', avatar: 'assets/img/avatar-female.svg'},
-    {name: 'Kai-Lin', role: 'PO', avatar: 'assets/img/avatar-female.svg'}
+    {name: 'Thierry', role: 'Boss', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/boss.png'},
+    {name: 'Céline', role: 'Developer', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Claire M', role: 'Developer', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Frédéric', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Pierre-Olivier', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Hamza', role: 'Developer', avatar: 'assets/img/avatar-hamza.jpg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Mehdi L', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Yassine', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Othmane', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Jacques', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Nada', role: 'QA', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/police.svg'},
+    {name: 'Fatima', role: 'QA', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/police.svg'},
+    {name: 'Abdouraman', role: 'QA', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/police.svg'},
+    {name: 'Mehdi H', role: 'QA', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/police.svg'},
+    {name: 'Ahmed', role: 'QA', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/police.svg'},
+    {name: 'Claire P', role: 'PO', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/po.png'},
+    {name: 'Pauline', role: 'PO', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/po.png'},
+    {name: 'Kai-Lin', role: 'PO', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/po.png'}
 ]
 
 let svg = d3.select('#chart').append("svg")
@@ -101,8 +101,12 @@ function selectAll() {
             checkbox.checked = true;
             selectedOptions.push({"label": checkbox.value, "value": parseInt(checkbox.value)});
         }
-        if (index === checkboxListLength - 1)
+        if (index === checkboxListLength - 1) {
+            document.getElementById("all-button-icon").innerHTML = this.isAllChecked ? "&#9634;" : "&#x1F5F9;";
+            document.getElementById("purple-button-icon").innerHTML = "&#9634;";
+            document.getElementById("workflow-button-icon").innerHTML = "&#9634;";
             this.isAllChecked = !this.isAllChecked;
+        }
 
         index ++;
     });
@@ -130,6 +134,9 @@ function selectPurpleTeam() {
         }
 
         if (index === checkboxListLength - 1) {
+            document.getElementById("all-button-icon").innerHTML = "&#9634;";
+            document.getElementById("purple-button-icon").innerHTML = this.isPurpleChecked ? "&#9634;" : "&#x1F5F9;";
+            document.getElementById("workflow-button-icon").innerHTML = "&#9634;";
             this.isPurpleChecked = !this.isPurpleChecked;
         }
 
@@ -159,6 +166,9 @@ function selectWorkflowTeam() {
         }
 
         if (index === checkboxListLength - 1) {
+            document.getElementById("all-button-icon").innerHTML = "&#9634;";
+            document.getElementById("purple-button-icon").innerHTML = "&#9634;";
+            document.getElementById("workflow-button-icon").innerHTML = this.isWorkflowChecked ? "&#9634;" : "&#x1F5F9;";
             this.isWorkflowChecked = !this.isWorkflowChecked;
         }
 
@@ -176,6 +186,7 @@ document.querySelectorAll('#options input[type=checkbox]').forEach(checkbox => {
 function spin(d) {
     // Prevent spin if data is empty
     if (!data || data.length === 0) {
+
         var modal = document.getElementById("modal");
         var span = document.getElementsByClassName("close")[0];
         let resultDiv = document.getElementById('result');
@@ -215,6 +226,11 @@ function spin(d) {
             let selectedLabel = selectedOption.label;
 
             data = data.filter(option => option !== selectedOption);
+            if (!data || data.length === 0) {
+                document.getElementById("all-button-icon").innerHTML = "&#9634;";
+                document.getElementById("purple-button-icon").innerHTML = "&#9634;";
+                document.getElementById("workflow-button-icon").innerHTML = "&#9634;";
+            }
             let resultDiv = document.getElementById('result');
             resultDiv.style.display = 'flex';
 
@@ -225,8 +241,9 @@ function spin(d) {
 
             let member = teamMemberList.find(member => member.name === selectedLabel);
             document.getElementById("avatar").src = member.avatar;
-            d3.select("#result div h1").text(selectedLabel);
-            d3.select("#result div h2").text(member.role);
+            document.getElementById("role-icon").src = member.roleIcon;
+            d3.select("#result-content h1").text(selectedLabel);
+            d3.select("#result-content h2").text(member.role);
             renderChart();
 
             let audio1 = document.getElementById('myAudio1');

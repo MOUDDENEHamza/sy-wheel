@@ -1,5 +1,5 @@
 # Sy wheel
-This project is a **Spinning Wheel of Names**, designed to help teams randomly select a participant during daily stand-ups or meetings. It's perfect for choosing someone to share updates or discuss what they accomplished the previous day in a fun and engaging way.
+This project is a **Sy wheel**, designed to help teams randomly select a participant during daily stand-ups or meetings. It's perfect for choosing someone to share updates or discuss what they accomplished the previous day in a fun and engaging way.
 
 ---
 
@@ -66,4 +66,4 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 ---
 
 ## 🎉 Let the Wheel Decide!
-Make your stand-ups more engaging and efficient with the **Spinning Wheel of Names**. Spin the wheel, and let fate decide! 😊
+Make your stand-ups more engaging and efficient with the **Sy wheel**. Spin the wheel, and let fate decide! 😊

@@ -15,24 +15,24 @@ let isPurpleChecked = false;
 let isWorkflowChecked = false;
 
 let teamMemberList = [
-    {name: 'Thierry', role: 'Boss', avatar: '../assets/img/avatar-male.svg', roleIcon: '../assets/img/boss.png'},
-    {name: 'Céline', role: 'Developer', avatar: '../assets/img/avatar-female.svg', roleIcon: '../assets/img/laptop.svg'},
-    {name: 'Claire M', role: 'Developer', avatar: '../assets/img/avatar-female.svg', roleIcon: '../assets/img/laptop.svg'},
-    {name: 'Frédéric', role: 'Developer', avatar: '../assets/img/avatar-male.svg', roleIcon: '../assets/img/laptop.svg'},
-    {name: 'Pierre-Olivier', role: 'Developer', avatar: '../assets/img/avatar-male.svg', roleIcon: '../assets/img/laptop.svg'},
-    {name: 'Hamza', role: 'Developer', avatar: '../assets/img/avatar-hamza.jpg', roleIcon: '../assets/img/laptop.svg'},
-    {name: 'Mehdi L', role: 'Developer', avatar: '../assets/img/avatar-male.svg', roleIcon: '../assets/img/laptop.svg'},
-    {name: 'Yassine', role: 'Developer', avatar: '../assets/img/avatar-male.svg', roleIcon: '../assets/img/laptop.svg'},
-    {name: 'Othmane', role: 'Developer', avatar: '../assets/img/avatar-male.svg', roleIcon: '../assets/img/laptop.svg'},
-    {name: 'Jacques', role: 'Developer', avatar: '../assets/img/avatar-male.svg', roleIcon: '../assets/img/laptop.svg'},
-    {name: 'Nada', role: 'QA', avatar: '../assets/img/avatar-female.svg', roleIcon: '../assets/img/police.svg'},
-    {name: 'Fatima', role: 'QA', avatar: '../assets/img/avatar-female.svg', roleIcon: '../assets/img/police.svg'},
-    {name: 'Abdouraman', role: 'QA', avatar: '../assets/img/avatar-male.svg', roleIcon: '../assets/img/police.svg'},
-    {name: 'Mehdi H', role: 'QA', avatar: '../assets/img/avatar-male.svg', roleIcon: '../assets/img/police.svg'},
-    {name: 'Ahmed', role: 'QA', avatar: '../assets/img/avatar-male.svg', roleIcon: '../assets/img/police.svg'},
-    {name: 'Claire P', role: 'PO', avatar: '../assets/img/avatar-female.svg', roleIcon: '../assets/img/po.png'},
-    {name: 'Pauline', role: 'PO', avatar: '../assets/img/avatar-female.svg', roleIcon: '../assets/img/po.png'},
-    {name: 'Kai-Lin', role: 'PO', avatar: '../assets/img/avatar-female.svg', roleIcon: '../assets/img/po.png'}
+    {name: 'Thierry', role: 'Boss', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/boss.png'},
+    {name: 'Céline', role: 'Developer', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Claire M', role: 'Developer', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Frédéric', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Pierre-Olivier', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Hamza', role: 'Developer', avatar: 'assets/img/avatar-hamza.jpg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Mehdi L', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Yassine', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Othmane', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Jacques', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Nada', role: 'QA', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/police.svg'},
+    {name: 'Fatima', role: 'QA', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/police.svg'},
+    {name: 'Abdouraman', role: 'QA', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/police.svg'},
+    {name: 'Mehdi H', role: 'QA', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/police.svg'},
+    {name: 'Ahmed', role: 'QA', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/police.svg'},
+    {name: 'Claire P', role: 'PO', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/po.png'},
+    {name: 'Pauline', role: 'PO', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/po.png'},
+    {name: 'Kai-Lin', role: 'PO', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/po.png'}
 ]
 
 let svg = d3.select('#chart').append("svg")

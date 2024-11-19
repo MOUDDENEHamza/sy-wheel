@@ -164,24 +164,10 @@ h1 {
 }
 
 #chart {
-    background: white;
-    width: 50%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
     padding: 1%;
 }
 
-svg {
-    background: rgb(237, 237, 237);
-    border: solid #c3c3c3;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    margin-left: 5%;
-}
-
 #chart::before {
-    width: 100%;
-    height: 100%;
     pointer-events: none;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -190,9 +176,16 @@ svg {
     z-index: -1;
 }
 
+svg {
+    background: rgb(237, 237, 237);
+    border: solid #c3c3c3;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+}
+
 #result {
     background: white;
-    width: 45%;
+    width: 40%;
     padding-top: 1%;
     display: none;
     flex-direction: column;
@@ -200,7 +193,7 @@ svg {
     transition: 0.3s;
 }
 
-#chart:hover, #result:hover {
+#result:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
@@ -209,8 +202,8 @@ svg {
 }
 
 #avatar {
-    width: 250px;
-    height: 250px;
+    width: 80%;
+    height: 50%;
     border-radius: 50%;
 }
 

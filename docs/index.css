@@ -41,12 +41,13 @@ h1 {
 #wrapper {
     width: 75%;
     margin: auto;
+    padding: 1%;
 }
 
 #header-container {
     background: white;
     margin: 1%;
-    padding: 0 1% 1%;
+    padding: 1%;
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -58,7 +59,7 @@ h1 {
 }
 
 #button-container {
-    margin: 1% 1% 0;
+    margin: 1%;
     display: flex;
 }
 
@@ -67,7 +68,7 @@ h1 {
     background: #264653;
     width: 13%;
     border: solid #264653;
-    padding: 0.5%;
+    padding: 1%;
     text-align: left;
     text-decoration: none;
     display: inline-block;
@@ -161,6 +162,7 @@ h1 {
     display: none;
     justify-content: space-between;
     margin: 1%;
+    padding: 1%;
 }
 
 #chart {

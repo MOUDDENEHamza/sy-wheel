@@ -31,7 +31,7 @@ let teamMemberList = [
     {name: 'Mehdi H', role: 'QA', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/police.svg'},
     {name: 'Ahmed', role: 'QA', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/police.svg'},
     {name: 'Claire P', role: 'PO', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/po.png'},
-    {name: 'Pauline', role: 'PO', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/po.png'},
+    {name: 'Pauline', role: 'PO', avatar: 'assets/img/avatar-pauline.png', roleIcon: 'assets/img/po.png'},
     {name: 'Kai-Lin', role: 'PO', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/po.png'}
 ]
 

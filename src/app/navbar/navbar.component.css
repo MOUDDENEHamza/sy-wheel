@@ -1,0 +1,13 @@
+.mat-toolbar {
+    background: #01bcd5;
+}
+
+.mat-toolbar h1 {
+    color: white;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.example-spacer {
+    flex: auto;
+}

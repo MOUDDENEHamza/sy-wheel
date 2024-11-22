@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {MatIconRegistry} from "@angular/material/icon";
+import {DomSanitizer} from '@angular/platform-browser';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-navbar',
@@ -9,8 +11,9 @@ import {MatIconRegistry} from "@angular/material/icon";
 })
 export class NavbarComponent {
 
-  constructor(private matIconRegistry: MatIconRegistry) {
-    this.matIconRegistry.addSvgIcon("github", "../../assets/img/github.svg")
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
+    this.matIconRegistry.addSvgIcon("wheel", this.domSanitizer.bypassSecurityTrustResourceUrl("assets/img/wheel.svg"))
+      .addSvgIcon("github", this.domSanitizer.bypassSecurityTrustResourceUrl("assets/img/github.svg"))
   }
 
 }

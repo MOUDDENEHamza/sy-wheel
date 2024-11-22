@@ -1,0 +1,24 @@
+<div id="team-container">
+
+  <section *ngFor="let taskSignal of tasks; let taskIndex = index">
+
+    <span class="option-list-header">
+      <mat-checkbox [checked]="taskSignal().completed"
+                    [indeterminate]="partiallyComplete[taskIndex]()" (change)="update(taskSignal, $event.checked)">
+        {{ taskSignal().name }}
+      </mat-checkbox>
+    </span>
+
+      <span>
+      <ul>
+        <li *ngFor="let subtask of taskSignal().subtasks; let subtaskIndex = index">
+          <mat-checkbox [checked]="subtask.completed" (change)="update(taskSignal, $event.checked, subtaskIndex)">
+            {{ subtask.name }}
+          </mat-checkbox>
+        </li>
+      </ul>
+    </span>
+
+  </section>
+
+</div>

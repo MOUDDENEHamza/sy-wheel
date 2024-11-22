@@ -1,0 +1,38 @@
+#button-container {
+  margin: 1%;
+}
+
+button {
+  width: 16%;
+  margin-right: 1%;
+}
+
+#all-button {
+  background: #264653;
+  border: solid #264653;
+}
+
+#all-button:hover {
+  color: black;
+  background: white;
+}
+
+#purple-button {
+  background: #aa47bc !important;
+  border: solid #aa47bc !important;
+}
+
+#purple-button:hover {
+  color: black;
+  background: white !important;
+}
+
+#workflow-button {
+  background: #457b9d !important;
+  border: solid #457b9d !important;
+}
+
+#workflow-button:hover {
+  color: black;
+  background: white !important;
+}

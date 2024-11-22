@@ -1,0 +1,18 @@
+<div id="button-container">
+
+  <button id="all-button" mat-flat-button (click)="click(0)">
+    <mat-icon>{{!this.clickedList[0] ? 'check_box_outline_blank' : 'check_box'}}</mat-icon>
+    All
+  </button>
+
+  <button id="purple-button" mat-flat-button (click)="click(1)">
+    <mat-icon>{{!this.clickedList[1] ? 'check_box_outline_blank' : 'check_box'}}</mat-icon>
+    Purple team
+  </button>
+
+  <button id="workflow-button" mat-flat-button (click)="click(2)">
+    <mat-icon>{{!this.clickedList[2] ? 'check_box_outline_blank' : 'check_box'}}</mat-icon>
+    Workflow team
+  </button>
+
+</div>

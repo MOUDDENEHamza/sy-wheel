@@ -2,8 +2,13 @@
     background: #01bcd5;
 }
 
+.mat-toolbar > * {
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+}
+
 .mat-toolbar h1 {
-    color: white;
+    color: black;
     font-size: 28px;
     font-weight: 400;
 }

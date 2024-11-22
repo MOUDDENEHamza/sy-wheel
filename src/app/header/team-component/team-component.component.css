@@ -1,0 +1,19 @@
+#team-container {
+  margin: 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+section {
+  width: 30%;
+}
+
+.role-icon {
+  width: 25px;
+  height: 25px;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: 0.5%;
+}

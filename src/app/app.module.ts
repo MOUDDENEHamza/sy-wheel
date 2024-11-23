@@ -17,6 +17,8 @@ import { ContentComponent } from './content/content.component';
 import { WheelComponentComponent } from './content/wheel-component/wheel-component.component';
 import { DrawComponentComponent } from './content/draw-component/draw-component.component';
 import {MatCard, MatCardContent, MatCardImage} from '@angular/material/card';
+import { DeskAnimationComponent } from './animation/desk-animation/desk-animation.component';
+import { CoffeeAnimationComponent } from './animation/coffee-animation/coffee-animation.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import {MatCard, MatCardContent, MatCardImage} from '@angular/material/card';
     TeamComponentComponent,
     ContentComponent,
     WheelComponentComponent,
-    DrawComponentComponent
+    DrawComponentComponent,
+    DeskAnimationComponent,
+    CoffeeAnimationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {ContextHolderService} from '../../context-holder.service';
-
+import confetti from "canvas-confetti";
 
 @Component({
   selector: 'app-wheel-component',
@@ -50,7 +50,20 @@ export class WheelComponentComponent {
   // @ts-ignore
   lastSelection;
 
+  private audio1: HTMLAudioElement;
+  private audio2: HTMLAudioElement;
+
+  confettiFlag: number = 0;
+
   constructor(private contextHolderService: ContextHolderService) {
+    this.audio1 = new Audio();
+    this.audio1.src = 'assets/audio/magic-shime-3.mp3'; // Path to your audio file
+    this.audio1.load();
+
+    this.audio2 = new Audio();
+    this.audio2.src = 'assets/audio/siren.mp3'; // Path to your audio file
+    this.audio2.load();
+
     this.contextHolderService.getContextHolder.subscribe(context => {
       this.selectedMember = context.selectedMember;
 
@@ -122,13 +135,13 @@ export class WheelComponentComponent {
     const sector = this.sectors[this.getIndex()];
     this.ctx.canvas.style.transform = `rotate(${this.ang - this.PI / 2}rad)`;
 
-    this.spin.nativeElement.textContent = !this.angVel ? "spin" : sector.label;
+    this.spin.nativeElement.textContent = !this.angVel ? "spin" : sector?.label;
     if (!first) {
       this.lastSelection = !this.angVel ? this.lastSelection : this.getIndex();
       this.deleteOption();
     }
 
-    this.spin.nativeElement.style.background = sector.color;
+    this.spin.nativeElement.style.background = sector?.color;
   }
 
   frame() {
@@ -145,9 +158,88 @@ export class WheelComponentComponent {
     requestAnimationFrame(this.frame.bind(this));
   }
 
+  basicConfetti() {
+    const duration = 3000;
+
+    confetti({
+      particleCount: 1000,
+      spread: 180,
+      origin: { y: 0.6 },
+      colors: ["#ffb6de", "#bf0", "#dbdcff"]
+    });
+
+    setTimeout(() => confetti.reset(), duration);
+  }
+
+  fireworksConfetti() {
+    var duration = 3000;
+    var animationEnd = Date.now() + duration;
+    var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    function randomInRange(min: number, max: number) {
+      return Math.random() * (max - min) + min;
+    }
+
+    var interval = setInterval(function() {
+      var timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      var particleCount = 500;
+      // since particles fall down, start a bit higher than random
+      confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }, colors: ["#f0b", "#f82", "#0bf"]});
+      confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }, colors: ["#f0b", "#f82", "#0bf"]});
+    }, 250);
+  }
+
+  starsConfetti() {
+    var defaults = {
+      spread: 360,
+      ticks: 50,
+      gravity: 0,
+      decay: 0.94,
+      startVelocity: 30,
+      colors: ["#0bf", "#fb0", "#0fb"]
+    };
+
+    function shoot() {
+      confetti({
+        ...defaults,
+        particleCount: 250,
+        scalar: 1.2,
+        shapes: ['star']
+      });
+
+      confetti({
+        ...defaults,
+        particleCount: 250,
+        scalar: 0.75,
+        shapes: ['circle']
+      });
+    }
+
+    setTimeout(shoot, 0);
+    setTimeout(shoot, 100);
+    setTimeout(shoot, 200);
+  }
+
   deleteOption() {
-    if (!this.angVel) {
+    if (!this.angVel && this.sectors[this.lastSelection]) {
       this.contextHolderService.setLastSelectedMember(this.sectors[this.lastSelection].label);
+
+      this.audio1.play().catch(error => console.error('Error playing audio:', error));
+      this.audio2.play().catch(error => console.error('Error playing audio:', error));
+
+      if (this.confettiFlag % 3 === 0)
+        this.basicConfetti();
+      else if (this.confettiFlag % 3 === 1)
+        this.fireworksConfetti();
+      else
+        this.starsConfetti();
+      this.confettiFlag += 1;
+
       this.spin.nativeElement.textContent = this.sectors[this.lastSelection].label;
       this.sectors.splice(this.lastSelection, 1);
       if (this.sectors.length === 0)

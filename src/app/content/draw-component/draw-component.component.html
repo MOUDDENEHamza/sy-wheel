@@ -1,10 +1,13 @@
-<mat-card id="draw-card" appearance="outlined">
+<mat-card *ngIf="this.selectedMember" id="draw-card" appearance="outlined">
 
   <img mat-card-image id="avatar" [src]="this.getMember()?.avatar" alt="avatar">
 
   <mat-card-content>
-    <h2>{{this.getMember()?.name}}</h2>
-    <h3>{{this.getMember()?.role}} <img *ngIf="this.selectedMember" id="role-icon" [src]="this.getMember().roleIcon" alt="role"></h3>
+    <h1>{{this.getMember()?.name}}</h1>
+    <h2>
+      {{this.getMember()?.role}}&nbsp;
+      <img id="role-icon" [src]="this.getMember().roleIcon" alt="role">
+    </h2>
   </mat-card-content>
 
 </mat-card>

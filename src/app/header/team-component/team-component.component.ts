@@ -80,6 +80,8 @@ export class TeamComponentComponent {
   clickedButton: String = "";
   selectedMember: Set<string> = new Set<string>();
 
+  isRotated: boolean = false;
+
   constructor(private contextHolderService: ContextHolderService) {
     this.contextHolderService.getContextHolder.subscribe(context => {
       this.clickedButton = context.clickedButton;
@@ -96,6 +98,8 @@ export class TeamComponentComponent {
           this.completeAll(false);
       }
     });
+
+    this.contextHolderService.getSelectedMember.subscribe(selectedMember => this.incompleteByName(selectedMember));
   }
 
   isAllCompleted(): boolean {
@@ -110,6 +114,17 @@ export class TeamComponentComponent {
       }
       return task.subtasks.every(subtask => subtask.teamList?.includes(team) ? subtask.completed : !subtask.completed);
     });
+  }
+
+  updateButton() {
+    if (this.isAllCompleted())
+      this.contextHolderService.setClickedButton('team-component', "All");
+    else if (this.isTeamCompleted('purple team'))
+      this.contextHolderService.setClickedButton('team-component', "Purple team");
+    else if (this.isTeamCompleted('workflow team'))
+      this.contextHolderService.setClickedButton('team-component', "Workflow team");
+    else
+      this.contextHolderService.setClickedButton('team-component', "");
   }
 
   // Generalized update method
@@ -139,14 +154,7 @@ export class TeamComponentComponent {
         }
       }
 
-      if (this.isAllCompleted())
-        this.contextHolderService.setClickedButton('team-component', "All");
-      else if (this.isTeamCompleted('purple team'))
-        this.contextHolderService.setClickedButton('team-component', "Purple team");
-      else if (this.isTeamCompleted('workflow team'))
-        this.contextHolderService.setClickedButton('team-component', "Workflow team");
-      else
-        this.contextHolderService.setClickedButton('team-component', "");
+      this.updateButton();
 
       this.contextHolderService.setSelectedMember(this.selectedMember);
 
@@ -195,6 +203,31 @@ export class TeamComponentComponent {
         }
       )
     );
+  }
+
+  incompleteByName(selectedMember: string) {
+    this.tasks.forEach((taskSignal) =>
+      taskSignal.update(task => {
+
+          task.subtasks?.forEach((subtask) => {
+            if (selectedMember === subtask.name) {
+              this.selectedMember.delete(subtask.name);
+              subtask.completed = false;
+            }
+          });
+
+          task.completed = task.subtasks ? task.subtasks.every(subtask => subtask.completed) : false;
+
+          this.updateButton();
+
+          return {...task};
+        }
+      )
+    );
+  }
+
+  toggleArrow() {
+    this.isRotated = !this.isRotated;
   }
 
 }

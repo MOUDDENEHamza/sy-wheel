@@ -14,6 +14,9 @@ import { TeamComponentComponent } from './header/team-component/team-component.c
 import {MatCheckbox} from '@angular/material/checkbox';
 import {provideHttpClient} from '@angular/common/http';
 import { ContentComponent } from './content/content.component';
+import { WheelComponentComponent } from './content/wheel-component/wheel-component.component';
+import { DrawComponentComponent } from './content/draw-component/draw-component.component';
+import {MatCard, MatCardContent, MatCardImage} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { ContentComponent } from './content/content.component';
     HeaderComponent,
     ButtonComponentComponent,
     TeamComponentComponent,
-    ContentComponent
+    ContentComponent,
+    WheelComponentComponent,
+    DrawComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,10 @@ import { ContentComponent } from './content/content.component';
     MatIcon,
     MatIconAnchor,
     MatButton,
-    MatCheckbox
+    MatCheckbox,
+    MatCard,
+    MatCardContent,
+    MatCardImage
   ],
   providers: [
     provideAnimationsAsync(),

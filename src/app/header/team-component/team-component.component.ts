@@ -61,7 +61,8 @@ export class TeamComponentComponent {
       subtasks: [
         {name: 'Claire P', teamList: ['purple team'], completed: false},
         {name: 'Pauline', teamList: ['purple team'], completed: false},
-        {name: 'Kai-Lin', teamList: ['workflow team'], completed: false}]
+        {name: 'Kai-Lin', teamList: ['workflow team'], completed: false}
+      ]
     })
   ];
 
@@ -82,6 +83,7 @@ export class TeamComponentComponent {
   constructor(private contextHolderService: ContextHolderService) {
     this.contextHolderService.getContextHolder.subscribe(context => {
       this.clickedButton = context.clickedButton;
+      this.selectedMember = context.selectedMember;
 
       if (context.editor !== 'team-component') {
         if ("All" === this.clickedButton)
@@ -158,10 +160,13 @@ export class TeamComponentComponent {
       taskSignal.update((task) => ({
         ...task,
         completed: complete,
-        subtasks: task.subtasks?.map((subtask) => ({
-          ...subtask,
-          completed: complete,
-        })),
+        subtasks: task.subtasks?.map((subtask) => {
+          if (complete)
+            this.selectedMember.add(subtask.name);
+          else
+            this.selectedMember.delete(subtask.name);
+          return {...subtask, completed: complete};
+        }),
       }))
     );
   }
@@ -171,7 +176,17 @@ export class TeamComponentComponent {
       taskSignal.update(task => {
 
           task.subtasks?.forEach((subtask) => {
-            subtask.completed = subtask.teamList ? subtask.teamList.includes(team) : false;
+            if (!subtask.teamList) {
+              this.selectedMember.delete(subtask.name);
+              subtask.completed = false;
+            } else {
+              if (subtask.teamList.includes(team))
+                this.selectedMember.add(subtask.name);
+              else
+                this.selectedMember.delete(subtask.name);
+
+              subtask.completed = subtask.teamList.includes(team);
+            }
           });
 
           task.completed = task.subtasks ? task.subtasks.every(subtask => subtask.completed) : false;

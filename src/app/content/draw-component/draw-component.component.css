@@ -1,0 +1,29 @@
+#draw-card {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#draw-card > * {
+  margin: auto;
+}
+
+#avatar {
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+}
+
+mat-card-content {
+  text-align: center;
+  margin: auto;
+}
+
+#role-icon {
+  width: 25px;
+  height: 25px;
+}
+
+#role-icon:not([src]) {
+  display: none;
+}

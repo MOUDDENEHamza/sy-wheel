@@ -11,7 +11,11 @@ export class ContextHolderService {
     {editor: "", clickedButton: "", selectedMember: new Set<string>()}
   )
 
+  private selectedMember = new BehaviorSubject('');
+
   getContextHolder = this.contextHolder.asObservable();
+
+  getSelectedMember = this.selectedMember.asObservable();
 
   constructor() { }
 
@@ -25,6 +29,10 @@ export class ContextHolderService {
   setSelectedMember(selectedMember: Set<string>): void {
     const currentContext = this.contextHolder.value; // Get the current context
     this.contextHolder.next({ ...currentContext, selectedMember }); // Update only selectedMember
+  }
+
+  setLastSelectedMember(selectedMember: string): void {
+    this.selectedMember.next(selectedMember); // Update selectedMember
   }
 
 }

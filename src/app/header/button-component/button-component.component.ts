@@ -1,19 +1,31 @@
 import { Component } from '@angular/core';
+import {ContextHolderService} from '../../context-holder.service';
 
 @Component({
   selector: 'app-button-component',
   standalone: false,
   templateUrl: './button-component.component.html',
-  styleUrl: './button-component.component.css'
+  styleUrls: ['./button-component.component.css']
 })
 export class ButtonComponentComponent {
 
-  clickedList : boolean[] = [false, false, false];
+  buttons = [
+    { name: 'All', id: 'all-button' },
+    { name: 'Purple team', id: 'purple-button' },
+    { name: 'Workflow team', id: 'workflow-button' },
+  ];
 
-  click(index: number) {
-    for (let i = 0; i < this.clickedList.length; i++) {
-      this.clickedList[i] = (i === index) ? !this.clickedList[i] : false;
-    }
+  clickedButton: string = "";
+
+  constructor(private contextHolderService: ContextHolderService) {
+    this.contextHolderService.getContextHolder.subscribe(context => {
+      this.clickedButton = context.clickedButton;
+    });
+  }
+
+  click(buttonName: string): void {
+    this.clickedButton = this.clickedButton === buttonName ? "" : buttonName;
+    this.contextHolderService.setClickedButton('button-component', this.clickedButton);
   }
 
 }

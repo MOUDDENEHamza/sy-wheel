@@ -13,6 +13,7 @@ import { ButtonComponentComponent } from './header/button-component/button-compo
 import { TeamComponentComponent } from './header/team-component/team-component.component';
 import {MatCheckbox} from '@angular/material/checkbox';
 import {provideHttpClient} from '@angular/common/http';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {provideHttpClient} from '@angular/common/http';
     NavbarComponent,
     HeaderComponent,
     ButtonComponentComponent,
-    TeamComponentComponent
+    TeamComponentComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

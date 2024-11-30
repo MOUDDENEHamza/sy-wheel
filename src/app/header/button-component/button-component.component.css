@@ -1,0 +1,53 @@
+#button-container {
+  margin: 1%;
+}
+
+#button-container > .team {
+  width: 16%;
+  margin-right: 1%;
+}
+
+#all-button {
+  background: #264653;
+  border: solid #264653;
+}
+
+#all-button:hover {
+  color: black;
+  background: white;
+}
+
+#purple-button {
+  background: #aa47bc !important;
+  border: solid #aa47bc !important;
+}
+
+#purple-button:hover {
+  color: black;
+  background: white !important;
+}
+
+#workflow-button {
+  background: #457b9d !important;
+  border: solid #457b9d !important;
+}
+
+#workflow-button:hover {
+  color: black;
+  background: white !important;
+}
+
+#expanded-button {
+  float: right;
+  background: #F1F0E8;
+  transition: transform 0.4s ease; /* Smooth rotation effect */
+}
+
+#expanded-button mat-icon {
+  display: inline-block;
+  transition: transform 0.4s ease; /* Smooth animation */
+}
+
+.expanded-button.rotated mat-icon {
+  transform: rotate(180deg); /* Rotate the text */
+}

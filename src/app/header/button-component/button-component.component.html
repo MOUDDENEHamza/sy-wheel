@@ -1,0 +1,16 @@
+<div id="button-container">
+
+  <button class="team" *ngFor="let button of buttons; index as i" [id]="button.id" mat-flat-button
+          (click)="click(button.name)">
+
+    <mat-icon>{{ clickedButton === button.name ? 'check_box' : 'check_box_outline_blank' }}</mat-icon>
+    {{ button.name }}
+
+  </button>
+
+  <button mat-icon-button id="expanded-button" class="expanded-button" (click)="toggleArrow()"
+          [class.rotated]="this.expanded">
+    <mat-icon>keyboard_arrow_down</mat-icon>
+  </button>
+
+</div>

@@ -1,0 +1,54 @@
+#draw-card {
+  background: white;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+#draw-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+#draw-card > * {
+  margin: auto;
+}
+
+#avatar {
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+}
+
+mat-card-content {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+h1 {
+  color: #434343;
+  font-size: 28px;
+  font-weight: 100;
+  line-height: 28px;
+  font-family: cursive;
+  margin: 0;
+  padding-left: 1%;
+}
+
+h2 {
+  color: #1b1b1b;
+  font-size: 24px;
+  line-height: 24px;
+  font-family: cursive;
+}
+
+#role-icon {
+  width: 25px;
+  height: 25px;
+}
+
+#role-icon:not([src]) {
+  display: none;
+}

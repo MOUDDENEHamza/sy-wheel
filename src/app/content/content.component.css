@@ -1,0 +1,13 @@
+#content-container {
+  margin: 2% 1% 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+app-wheel-component {
+  width: 50%;
+}
+
+app-draw-component {
+  width: 40%;
+}

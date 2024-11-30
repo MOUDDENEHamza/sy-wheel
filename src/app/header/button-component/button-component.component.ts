@@ -12,10 +12,12 @@ export class ButtonComponentComponent {
   buttons = [
     { name: 'All', id: 'all-button' },
     { name: 'Purple team', id: 'purple-button' },
-    { name: 'Workflow team', id: 'workflow-button' },
+    { name: 'Workflow team', id: 'workflow-button' }
   ];
 
   clickedButton: string = "";
+
+  expanded: boolean = true;
 
   constructor(private contextHolderService: ContextHolderService) {
     this.contextHolderService.getContextHolder.subscribe(context => {
@@ -26,6 +28,11 @@ export class ButtonComponentComponent {
   click(buttonName: string): void {
     this.clickedButton = this.clickedButton === buttonName ? "" : buttonName;
     this.contextHolderService.setClickedButton('button-component', this.clickedButton);
+  }
+
+  toggleArrow() {
+    this.expanded = !this.expanded;
+    this.contextHolderService.setExpanded(this.expanded);
   }
 
 }

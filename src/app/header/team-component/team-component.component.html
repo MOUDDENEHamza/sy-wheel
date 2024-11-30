@@ -7,13 +7,11 @@
                     [indeterminate]="partiallyComplete[taskIndex]()" (change)="update(taskSignal, $event.checked)">
         {{ taskSignal().name }}
 
-        <button class="toggle-button" (click)="toggleArrow()" [class.rotated]="isRotated">
-          <mat-icon>{{ isRotated ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}}</mat-icon>
-        </button>
       </mat-checkbox>
+
     </span>
 
-      <span>
+    <span>
       <ul>
         <li *ngFor="let subtask of taskSignal().subtasks; let subtaskIndex = index">
           <mat-checkbox [checked]="subtask.completed" (change)="update(taskSignal, $event.checked, subtaskIndex)">

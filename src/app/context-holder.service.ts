@@ -13,9 +13,13 @@ export class ContextHolderService {
 
   private selectedMember = new BehaviorSubject('');
 
+  private expanded = new BehaviorSubject(true);
+
   getContextHolder = this.contextHolder.asObservable();
 
   getSelectedMember = this.selectedMember.asObservable();
+
+  getExpanded = this.expanded.asObservable();
 
   constructor() { }
 
@@ -33,6 +37,10 @@ export class ContextHolderService {
 
   setLastSelectedMember(selectedMember: string): void {
     this.selectedMember.next(selectedMember); // Update selectedMember
+  }
+
+  setExpanded(expanded: boolean) {
+    this.expanded.next(expanded); // Update expanded
   }
 
 }

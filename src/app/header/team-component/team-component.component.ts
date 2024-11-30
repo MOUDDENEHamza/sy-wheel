@@ -80,8 +80,6 @@ export class TeamComponentComponent {
   clickedButton: String = "";
   selectedMember: Set<string> = new Set<string>();
 
-  isRotated: boolean = false;
-
   constructor(private contextHolderService: ContextHolderService) {
     this.contextHolderService.getContextHolder.subscribe(context => {
       this.clickedButton = context.clickedButton;
@@ -224,10 +222,6 @@ export class TeamComponentComponent {
         }
       )
     );
-  }
-
-  toggleArrow() {
-    this.isRotated = !this.isRotated;
   }
 
 }

@@ -102,8 +102,11 @@ export class WheelComponentComponent {
   }
 
   spinner() {
-    if (this.sectors.length >= 1 && this.sectors[0].label !== '')
-      if (!this.angVel) this.angVel = this.rand(0.25, 0.35);
+    if (this.sectors.length >= 1 && this.sectors[0].label !== '') {
+      if (!this.angVel) {
+        this.angVel = this.rand(0.25, 0.35);
+      }
+    }
   }
 
   getIndex = () =>
@@ -187,7 +190,7 @@ export class WheelComponentComponent {
         return clearInterval(interval);
       }
 
-      var particleCount = 500;
+      var particleCount = 250;
       // since particles fall down, start a bit higher than random
       confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }, colors: ["#f0b", "#f82", "#0bf"]});
       confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }, colors: ["#f0b", "#f82", "#0bf"]});
@@ -227,7 +230,6 @@ export class WheelComponentComponent {
 
   deleteOption() {
     if (!this.angVel && this.sectors[this.lastSelection]) {
-      this.contextHolderService.setLastSelectedMember(this.sectors[this.lastSelection].label);
 
       this.audio1.play().catch(error => console.error('Error playing audio:', error));
       this.audio2.play().catch(error => console.error('Error playing audio:', error));
@@ -241,7 +243,7 @@ export class WheelComponentComponent {
       this.confettiFlag += 1;
 
       this.spin.nativeElement.textContent = this.sectors[this.lastSelection].label;
-      this.sectors.splice(this.lastSelection, 1);
+      this.contextHolderService.setLastSelectedMember(this.sectors[this.lastSelection].label);
       if (this.sectors.length === 0)
         this.sectors = [{label: '', color: '#ededed'}];
 

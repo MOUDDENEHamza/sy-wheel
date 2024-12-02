@@ -55,6 +55,8 @@ export class WheelComponentComponent {
 
   confettiFlag: number = 0;
 
+  expanded: boolean = true;
+
   constructor(private contextHolderService: ContextHolderService) {
     this.audio1 = new Audio();
     this.audio1.src = 'assets/audio/magic-shime-3.mp3'; // Path to your audio file
@@ -82,6 +84,8 @@ export class WheelComponentComponent {
         this.createWheel();
 
     });
+
+    this.contextHolderService.getExpanded.subscribe(expanded => this.expanded = expanded);
   }
 
   ngDoCheck(): void {
@@ -140,6 +144,7 @@ export class WheelComponentComponent {
 
     this.spin.nativeElement.textContent = !this.angVel ? "spin" : sector?.label;
     if (!first) {
+      this.contextHolderService.setExpanded(true);
       this.lastSelection = !this.angVel ? this.lastSelection : this.getIndex();
       this.deleteOption();
     }

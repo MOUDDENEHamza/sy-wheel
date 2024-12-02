@@ -23,6 +23,8 @@ export class ButtonComponentComponent {
     this.contextHolderService.getContextHolder.subscribe(context => {
       this.clickedButton = context.clickedButton;
     });
+
+    this.contextHolderService.getExpanded.subscribe(expanded => this.expanded = expanded);
   }
 
   click(buttonName: string): void {

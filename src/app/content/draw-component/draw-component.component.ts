@@ -12,11 +12,11 @@ export class DrawComponentComponent {
 
   memberList : any[] = [
     {name: 'Thierry', role: 'Boss', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/boss.png'},
-    {name: 'Céline', role: 'Developer', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Céline', role: 'Developer', avatar: 'assets/img/avatar-céline.jpg', roleIcon: 'assets/img/laptop.svg'},
     {name: 'Claire M', role: 'Developer', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/laptop.svg'},
     {name: 'Frédéric', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
     {name: 'Pierre-Olivier', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
-    {name: 'Hamza', role: 'Developer', avatar: 'assets/img/avatar-hamza.jpg', roleIcon: 'assets/img/laptop.svg'},
+    {name: 'Hamza', role: 'Developer', avatar: 'assets/img/avatar-hamza.png', roleIcon: 'assets/img/laptop.svg'},
     {name: 'Mehdi L', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
     {name: 'Yassine', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
     {name: 'Othmane', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},

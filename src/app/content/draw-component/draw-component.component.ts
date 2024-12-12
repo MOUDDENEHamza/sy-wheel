@@ -23,7 +23,7 @@ export class DrawComponentComponent {
     {name: 'Jaques', role: 'Developer', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/laptop.svg'},
     {name: 'Nada', role: 'QA', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/police.svg'},
     {name: 'Fatima', role: 'QA', avatar: 'assets/img/avatar-female.svg', roleIcon: 'assets/img/police.svg'},
-    {name: 'Abdouraman', role: 'QA', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/police.svg'},
+    {name: 'Abdouraman', role: 'QA', avatar: 'assets/img/avatar-abdouraman.jpg', roleIcon: 'assets/img/police.svg'},
     {name: 'Mehdi H', role: 'QA', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/police.svg'},
     {name: 'Ahmed', role: 'QA', avatar: 'assets/img/avatar-male.svg', roleIcon: 'assets/img/police.svg'},
     {name: 'Claire P', role: 'Product owner', avatar: 'assets/img/avatar-claire.jpg', roleIcon: 'assets/img/po.png'},
